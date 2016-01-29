@@ -134,3 +134,8 @@ $wgDefaultSkin = "vector";
 
 # End of automatically generated settings.
 # Add more configuration options below.
+#
+wfLoadSkin( 'CologneBlue' );
+wfLoadSkin( 'Modern' );
+wfLoadSkin( 'MonoBook' );
+wfLoadSkin( 'Vector' );
