@@ -58,14 +58,14 @@ $wgEmailAuthentication = true;
 #$wgDBpassword = "REDACTED";
 
 ## Database settings
-$_wgDBConnectionString = getenv('CLEARDB_DATABASE_URL');
-if (preg_match('%(.*?)://([^:]+):([^@]+)@([^:]+):(\d+)/(.*)%', $_wgDBConnectionString, $regs, PREG_OFFSET_CAPTURE)) {
-$wgDBtype = $regs[1][0];
-$wgDBuser = $regs[2][0];
-$wgDBpassword = $regs[3][0];
-$wgDBserver = $regs[4][0];
-$wgDBport = $regs[5][0];
-$wgDBname = $regs[6][0];
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+#if (preg_match('%(.*?)://([^:]+):([^@]+)@([^:]+):(\d+)/(.*)%', $_wgDBConnectionString, $regs, PREG_OFFSET_CAPTURE)) {
+#$wgDBtype = $regs[1][0];
+$wgDBuser = $url["user"];
+$wgDBpassword = $url["pass"];
+$wgDBserver = $url["host"];
+#$wgDBport = $regs[5][0];
+$wgDBname = substr($url["path"], 1);
 } else {
 die("Failed to parse DB connection string");
 }
