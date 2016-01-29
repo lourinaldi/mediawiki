@@ -66,9 +66,9 @@ $wgDBpassword = $url["pass"];
 $wgDBserver = $url["host"];
 #$wgDBport = $regs[5][0];
 $wgDBname = substr($url["path"], 1);
-} else {
-die("Failed to parse DB connection string");
-}
+#} else {
+#die("Failed to parse DB connection string");
+#}
 
 # MySQL specific settings
 $wgDBprefix = "";
